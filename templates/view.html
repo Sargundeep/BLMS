@@ -1,0 +1,163 @@
+<style>
+    .container{
+      margin:10px;
+      padding:10px;
+      font-family: cursive;
+      font-size: 40px;
+      color : cyan;
+      text-align: center;
+    
+    } 
+    /* .h2{
+      margin:10px;
+      padding:10px;
+      font-family: cursive;
+      font-size: 25px;
+      color : rgb(70, 164, 226); 
+    
+    }  */
+    /* .butn{
+      padding:20px;
+      margin:10px;
+    } */
+    .table{
+      margin-left: 300px;
+      padding:5px;
+      /* margin:20px; */
+    }
+    .bg{
+      background-color: rgb(80, 78, 78);
+    }
+    .align{
+    float: right
+    }
+      /* The sidebar menu */
+  .sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 160px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+  }
+
+/* The navigation menu links */
+  .sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #818181;
+  display: block;
+  }
+
+/* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+  color: #f1f1f1;
+  }
+
+/* Style page content */
+  .main {
+  margin-left: 160px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+  }
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+  }
+
+  </style>
+  <!doctype html>
+  <html lang="en">
+    
+    <head class="bg">
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="theme-color" content="#4285f4">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+      <!-- Bootstrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  
+      <title>Welcome To Indian Library!</title>
+      
+    </head>
+    <body class="bg">
+      <!-- Side navigation -->
+      <div class="sidenav">
+        <a href="http://127.0.0.1:5000/">Home</a>
+        <a href="http://127.0.0.1:5000/view/">Student Record</a>
+        <a href="http://127.0.0.1:5000/insert/">Add Student</a>
+        <a href="http://127.0.0.1:5000/attend/">Mark Attendance</a>
+        
+      </div>
+      <br>
+      <br>
+      <div class=" bg main">
+        
+        <h1 class="container"><strong><u>Student Record</u></strong></h1>
+        
+        <!-- <a href="http://127.0.0.1:5000/view/" class="btn btn-success butn">Student Record</a> -->
+        <!-- <a href="http://127.0.0.1:5000/insert/" class="btn btn-success butn">Add Student</a> -->
+        <!-- <a href="http://127.0.0.1:5000/database/" class="btn btn-success">View Available Books</a>
+        <a href="http://127.0.0.1:5000/view/" class="btn btn-success">Update Student Record</a> -->
+        
+      <!-- {% if data['success'] %}
+      <div class="alert alert-success" role="alert">
+        {{data['success']}}
+      {% endif %}
+      </div>
+      {% if data['error'] %}
+      <div class="alert alert-danger" role="alert">
+        {{data['error']}}
+      {% endif %} -->
+      </div>
+        
+      <table style="width:max-content;"class="table table-info table-striped table-hover table ">
+          <tr>
+              <th scope="col">Sr No</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email Id</th>
+              <th scope="col">Mobile No</th>
+              <th scope="col">Book Name</th>
+              <th scope="col">Book Author</th>
+              <th scope="col">Date Of Issue</th>
+              <th scope="col">Status</th>
+              <th scope="col">Attendance</th>
+          </tr>
+          {% for stud in data['stud_list'] %}
+              <tr>
+                  <td scope="rows">{{stud[0]}}</td>
+                  <td>{{stud[1]}}</td>
+                  <td>{{stud[2]}}</td>
+                  <td>{{stud[3]}}</td>
+                  <td>{{stud[4]}}</td>
+                  <td>{{stud[5]}}</td>
+                  <td>{{stud[6]}}</td>
+                  <td>{{stud[7]}}</td>
+                  <td>{{stud[8]}}</td>
+                  <!-- <td>
+                    <a href="http://127.0.0.1:5000/edit?rn={{stud[0]}}" class="btn btn-info ">Update Record</a>
+                    <a href="http://127.0.0.1:5000/delete?rn={{stud[0]}}" class="btn btn-secondary ">Delete Record</a>
+                  </td> -->
+              </tr>        
+          {% endfor %}
+      </table>
+  
+        <!-- Optional JavaScript; choose one of the two! -->
+    
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    
+        <!-- Option 2: Separate Popper and Bootstrap JS -->
+        <!--
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+        -->
+      </body>
+    </div>
+    </html>

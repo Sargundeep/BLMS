@@ -1,0 +1,221 @@
+<style>
+  .container{
+    margin:10px;
+    padding:10px;
+    font-family: cursive;
+    color : cyan;
+    text-align: center;
+  
+  } 
+  /* .h2{
+    margin:10px;
+    padding:10px;
+    font-family: cursive;
+    font-size: 25px;
+    color : rgb(70, 164, 226);  */
+  
+  
+  .form{
+    margin:30px;
+    padding:60px;
+  } 
+  .butn{
+    padding:20px;
+    margin:10px;
+    width: 100px;
+  }
+  /* .table{
+    padding:5px;
+     margin:20px; 
+  } */
+  .bg{
+    background-color: rgb(80, 78, 78);
+  }
+  .align{
+    float: right
+  }
+    /* The sidebar menu */
+    .sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 160px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+  }
+
+/* The navigation menu links */
+  .sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #818181;
+  display: block;
+  }
+
+/* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+  color: #f1f1f1;
+  }
+
+/* Style page content */
+  .main {
+  margin-left: 160px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+  }
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+  }
+
+</style>
+<!doctype html>
+<html lang="en">
+  <head class="bg">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="theme-color" content="#4285f4">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <title>Hello World</title>
+  </head>
+  <body class="bg">
+    <!-- Side navigation -->
+    <div class="sidenav">
+      <a href="http://127.0.0.1:5000/">Home</a>
+      <a href="http://127.0.0.1:5000/view/">Student Record</a>
+      <a href="http://127.0.0.1:5000/insert/">Add Student</a>
+      <a href="http://127.0.0.1:5000/attend/">Mark Attendance</a>
+      
+    </div>
+    <br>
+    <br>
+    <div class="container bg main">
+        
+        <h1>Update Student Record</h1>
+    <div class="col-10 main">
+    {% if student_info %}
+    <form method="POST" class="form main">
+        <input type="number" class="form-control" id="txtSr_no" name="txtSr_no" readonly value="{{student_info[0]}}"/>                      
+        <br/>
+        <input type="text" class="form-control" id="txtName" name="txtName" required placeholder="Student's Name" value="{{student_info[1]}}"/>
+        <br/>
+        <input type="email" class="form-control" id="txtEmail" name="txtEmail" required placeholder="Student's Email" value="{{student_info[2]}}"/>
+        <br/>
+        <input type="text" class="form-control" id="txtMobile" name="txtMobile"required placeholder="Student's Mobile No" value="{{student_info[3]}}"/>
+        <br/>
+        <!-- <input type="" class="form-control" id="txtBookName" name="txtBookName" required placeholder="Book Name" value="{{student_info[4]}}"/>
+        <br/> -->
+        <label for="Book Name">Choose a book:</label>
+        <select name="txtBookName" id="txtBookName">  
+          <option value="A Secular Agenda"> A Secular Agenda </option>  
+          <option value="A Suitable Boy">A Suitable Boy </option>  
+          <option value="Akbarnama"> Akbarnama </option>  
+          <option value="An idealist View of Life"> An idealist View of Life </option>  
+          <option value="Fall of a Sparrow"> Fall of a Sparrow </option>  
+          <option value="My Experiment With Truth"> My Experiment With Truth </option>   
+          <option value="My Truth"> My Truth </option>  
+          <option value="My Early Life"> My Early Life </option>  
+          <option value="Savitri"> Savitri </option>  
+          <option value="Vanity Fair"> Vanity Fair </option>  
+          <option value="Voice of Conscience"> Voice of Conscience </option>  
+          <option value="Discovery of India">Discovery of India </option>   
+          <option value="Area of Darkness"> Area of Darkness</option>  
+          <option value="Crescent Moon">Crescent Moon</option>  
+          <option value="Panchtantra"> Panchtantra </option>  
+          <option value="Arion and the Dolphin">Arion and the Dolphin </option>  
+          <option value="Passage to England"> Passage to England </option>  
+          <option value="Prison Diary"> Prison Diary </option>   
+          <option value="Dharmashastra">Dharmashastra</option>   
+          <option value="Durgesh Nandini">Durgesh Nandini</option>   
+          <option value="Devadas"> Devadas </option>  
+          <option value="Court Dancer"> Court Dancer </option>  
+          <option value="A Reveolutionary Life">A Reveolutionary Life </option>   
+          <option value="Ashtadhyayi"> Ashtadhyayi</option>  
+          <option value="Arthashastra">Arthashastra</option>  
+          <option value="Gita Rahasya">Gita Rahasya</option>  
+          <option value="Fortynine Days">Fortynine Days </option>  
+          <option value="Passage to England"> Passage to England </option>  
+          <option value="Changing India"> Changing India </option>   
+          <option value="The Book Hunters of Katpadi">The Book Hunters of Katpadi</option>   
+          <option value="A state of freedom">A state of freedom</option> 
+          <option value="Autumn">Autumn </option>  
+          <option value="The Vanishing">The Vanishing </option>   
+          <option value="A Tale of Two Victoria Crosses"> A Tale of Two Victoria Crosses</option>  
+          <option value="Origin">Origin</option>  
+          <option value="Sea Prayer">Sea Prayer</option>  
+          <option value="Happy Dreams"> Happy Dreams </option>   
+          <option value="Exam Warriors">Exam Warriors</option> 
+        </select>
+        
+        <!-- <input type="text" class="form-control" id="txtBookAuth" name="txtBookAuth"required placeholder="Book Author" value="{{student_info[5]}}"/>
+        <br/> -->
+        <label for="Book Author">Select the author of the book:</label>
+        <select name="txtBookAuth" id="txtBookAuth">   
+          <option value="Arun Shourie">Arun Shourie</option>  
+          <option value="V V Giri">V V Giri</option> 
+          <option value="Vikram Seth"> Vikram Seth </option>  
+          <option value="Abul Fazal"> Abul Fazal </option>  
+          <option value="Dr.S. Radhakrishnan">Dr.S. Radhakrishnan </option>  
+          <option value="Salim Ali"> Salim Ali </option> 
+          <option value="Pradeep Sebastia"> Pradeep Sebastia</option>  
+          <option value="M K Gandhi"> M K Gandhi </option>  
+          <option value="Indira Gandhi">Indira Gandhi</option>  
+          <option value="Aurobindo Ghosh"> Aurobindo Ghosh</option>  
+          <option value="Rabindranath Tagore"> Rabindranath Tagore </option>  
+          <option value="Kalidas">Kalidas </option>  
+          <option value="Thackeray"> Thackeray </option>  
+          <option value="Dr. Manmohan Singh"> Dr. Manmohan Singh </option>  
+          <option value="Vishnu Sharma"> Vishnu Sharma </option>  
+          <option value="Nirad C Chaudhuri">Nirad C Chaudhuri</option>  
+          <option value="Jayaprakash Narayan">Jayaprakash Narayan</option>  
+          <option value="Prem Chand"> Prem Chand </option>  
+          <option value="L K Advani">L K Advani </option>  
+          <option value="Sarojini Naidu"> Sarojini Naidu </option>  
+          <option value="Kapil Dev"> Kapil Dev </option>  
+          <option value="Kautilya">Kautilya</option>  
+          <option value="Panini"> Panini</option>  
+          <option value="Laxmi Sehgal"> Laxmi Sehgal </option>  
+          <option value="Bankim Chandra Chatterjee">Bankim Chandra Chatterjee </option>  
+          <option value="Jai Shankar Prasad"> Jai Shankar Prasad </option>  
+          <option value="Manu"> Manu </option>  
+          <option value="Neel Mukerjee"> Neel Mukerjee </option> 
+          <option value="Khaled Hosseini">Khaled Hosseini </option>  
+          <option value="Dan Brown">Dan Brown </option>  
+          <option value="Lt Gen Baljit Singh"> Lt Gen Baljit Singh </option>  
+          <option value="Narendra Modi"> Narendra Modi </option>  
+          <option value="Jia Pingwa"> Jia Pingwa </option>   
+          <option value="Jawaharlal Nehru"> Jia Pingwa </option>   
+          <option value="V.S. Naipaul"> V.S. Naipaul</option>   
+          <option value="Kapil Dev"> Kapil Dev </option>   
+      </select> 
+      <br/>S
+      <br/>
+        <input type="text" class="form-control" id="txtdateofissue" name="txtdateofissue"readonly value="{{student_info[6]}}"/>
+        <br/>
+        <input type="text" class="form-control" colour="Blue" id="txtStatus" name="txtStatus"required placeholder="Status"/>
+        <br/>
+        <input type="submit" value="Save" class="btn btn-info"/>
+    </form>
+    {% endif %}  
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    -->
+  </body>
+</div>
+</html>
